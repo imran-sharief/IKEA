@@ -51,15 +51,14 @@ var $form = $('form#test-form'),
 
 $('#submit-form').on('click', function(e) {
   e.preventDefault();
-  var jqxhr = $.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
-    data: $('form#test-form').serializeObject()
-  }).success(
-    // do something
-  );
-})
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: $('form#test-form').serializeObject(),
+        success: function (rooms) {
+              console.log(rooms)
+        }
+    });
 </script>
 
 </body>
